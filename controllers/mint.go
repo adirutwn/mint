@@ -1,9 +1,9 @@
-package controller
+package controllers
 
 import (
 	"fmt"
 	"github.com/adirutwn/mint/entities"
-	"github.com/adirutwn/mint/repository"
+	"github.com/adirutwn/mint/repositories"
 	"github.com/adirutwn/mint/services/stellar"
 	"github.com/adirutwn/mint/ui"
 	"github.com/stellar/go/clients/horizonclient"
@@ -28,7 +28,7 @@ func Mint(horizonClient *horizonclient.Client) {
 		return
 	}
 
-	distributorAcc, err := repository.LoadAccount(horizonClient, params.DistributorAddress)
+	distributorAcc, err := repositories.LoadAccount(horizonClient, params.DistributorAddress)
 	if err != nil {
 		herr, isHorizonError := err.(*horizonclient.Error)
 		if !isHorizonError {
