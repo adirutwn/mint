@@ -46,7 +46,7 @@ func DisplaySummary(assetCode string, amount string,
 	fmt.Printf("asset code:          %s\n", assetCode)
 	fmt.Printf("asset issuer:        %s\n", issuerAddress)
 	fmt.Printf("amount to be mint:   %s (%s%s)\n", humanize.Commaf(paramsAmountFloat), num2words.Convert(int(paramsAmountFloat)), decimalMsg)
-	fmt.Printf("distributor address: %s %s\n", distributorAddress, distributorAccountExtraMsg)
+	fmt.Printf("received address: %s %s\n", distributorAddress, distributorAccountExtraMsg)
 	fmt.Printf("%s", needToTrustMsg)
 	fmt.Printf("%s", issuerAccountLockMsg)
 	fmt.Println("-------------------------------------")

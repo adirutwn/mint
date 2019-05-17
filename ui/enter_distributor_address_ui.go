@@ -9,7 +9,7 @@ import (
 
 func EnterDistributorAddress(assetCode string) string {
 	distributorAddressPrompt := promptui.Prompt{
-		Label: fmt.Sprintf("[💸] please enter the distributor address of %s ", assetCode),
+		Label: fmt.Sprintf("[💸] please enter the address you want to issue %s to ", assetCode),
 		Validate: validators.StellarAddress,
 	}
 	distributorAddress, _ := distributorAddressPrompt.Run()
