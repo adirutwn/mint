@@ -4,7 +4,7 @@ A small cmd too for issuing an asset on stellar.
 ## Setup
 To install mint, just use a simple go get command  
 ```sh 
-$ go geth github.com/adirutwn/mint
+$ go get github.com/adirutwn/mint
 ```  
 And don't forget to properly configured $GOPATH directory, with `$GOPATH/bin` added to your `PATH`
 ```sh
