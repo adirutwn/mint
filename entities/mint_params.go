@@ -5,6 +5,7 @@ type MintParams struct {
 	Amount string
 	IssuerAddress string
 	IssuerSeedKey string
+	IssuerHomeDomain string
 	IsIssuerAccountLock bool
 	DistributorAddress string
 	DistributorSeedKey string

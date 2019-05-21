@@ -10,7 +10,7 @@ import (
 )
 
 func DisplaySummary(assetCode string, amount string,
-	issuerAddress string, distributorAddress string,
+	issuerAddress string, issuerHomeDomain string, distributorAddress string,
 	isDistributorAccountNeedToCreate bool, isDistributorAccountNeedToTrust bool,
 	isIssuerAccountLock bool) error {
 
@@ -40,13 +40,19 @@ func DisplaySummary(assetCode string, amount string,
 		decimalMsg = " + some decimal places"
 	}
 
+	issuerHomeDomainMsg := ""
+	if issuerHomeDomain != "" {
+		issuerHomeDomainMsg = fmt.Sprintf("home domain:         %s\n", issuerHomeDomain)
+	}
+
 	fmt.Println()
 	fmt.Println("here's a summary:")
 	fmt.Println("-------------------------------------")
 	fmt.Printf("asset code:          %s\n", assetCode)
 	fmt.Printf("asset issuer:        %s\n", issuerAddress)
+	fmt.Printf("%s", issuerHomeDomainMsg)
 	fmt.Printf("amount to be mint:   %s (%s%s)\n", humanize.Commaf(paramsAmountFloat), num2words.Convert(int(paramsAmountFloat)), decimalMsg)
-	fmt.Printf("received address: %s %s\n", distributorAddress, distributorAccountExtraMsg)
+	fmt.Printf("received address:    %s %s\n", distributorAddress, distributorAccountExtraMsg)
 	fmt.Printf("%s", needToTrustMsg)
 	fmt.Printf("%s", issuerAccountLockMsg)
 	fmt.Println("-------------------------------------")

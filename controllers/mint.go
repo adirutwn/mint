@@ -67,12 +67,15 @@ func Mint(horizonClient *horizonclient.Client) {
 		params.DistributorSeedKey = ui.EnterDistributorSeedKey(params.AssetCode)
 	}
 
+	params.IssuerHomeDomain = ui.EnterHomeDomain()
+
 	params.IsIssuerAccountLock = ui.ChoiceIssuerAccountLockOrNo(params.AssetCode)
 
 	err = ui.DisplaySummary(
 		params.AssetCode,
 		params.Amount,
 		params.IssuerAddress,
+		params.IssuerHomeDomain,
 		params.DistributorAddress,
 		params.IsDistributorAccountNeedToCreate,
 		params.IsDistributorAccountNeedToTrust,

@@ -2,6 +2,7 @@ package stellar
 
 import (
 	"fmt"
+	"github.com/AlekSi/pointer"
 	"github.com/adirutwn/mint/entities"
 	"github.com/adirutwn/mint/utils"
 	"github.com/briandowns/spinner"
@@ -65,6 +66,14 @@ func IssueAsset(hClient *horizonclient.Client, params entities.MintParams) (*hor
 		},
 	}
 	operations = append(operations, &issueAssetOp)
+
+	if params.IssuerHomeDomain != "" {
+		setHomeDomainOp := txnbuild.SetOptions{
+			HomeDomain: pointer.ToString(params.IssuerHomeDomain),
+		}
+
+		operations = append(operations, &setHomeDomainOp)
+	}
 
 	if params.IsIssuerAccountLock {
 		highestThreshold := txnbuild.Threshold(255)
