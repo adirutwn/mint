@@ -13,7 +13,7 @@ func EnterAssetCode() string {
 		Validate: validators.AssetCode,
 	}
 	assetCode, _ := assetCodePrompt.Run()
-	assetCode = strings.TrimSpace(strings.ToUpper(assetCode))
+	assetCode = strings.TrimSpace(assetCode)
 	fmt.Printf("[👍] cool, you're about to mint %s\n", assetCode)
 
 	return assetCode

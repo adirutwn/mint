@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	"github.com/adirutwn/mint/constants"
-	"github.com/adirutwn/mint/controller"
+	"github.com/adirutwn/mint/controllers"
 	"github.com/manifoldco/promptui"
 	"github.com/stellar/go/clients/horizonclient"
 )
@@ -33,5 +33,5 @@ func main() {
 		horizonClient = horizonclient.DefaultPublicNetClient
 	}
 
-	controller.Mint(horizonClient)
+	controllers.Mint(horizonClient)
 }

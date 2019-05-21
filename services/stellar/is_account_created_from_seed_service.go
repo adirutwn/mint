@@ -1,7 +1,7 @@
 package stellar
 
 import (
-	"github.com/adirutwn/mint/repository"
+	"github.com/adirutwn/mint/repositories"
 	"github.com/adirutwn/mint/utils"
 	"github.com/pkg/errors"
 	"github.com/stellar/go/clients/horizonclient"
@@ -14,7 +14,7 @@ func IsAccountCreatedFromSeed(horizonClient *horizonclient.Client, seedKey strin
 		return nil, err
 	}
 
-	_, err = repository.LoadAccount(horizonClient, issuerKp.Address())
+	_, err = repositories.LoadAccount(horizonClient, issuerKp.Address())
 	if err != nil {
 		herr, isHorizonError := err.(*horizonclient.Error)
 		if !isHorizonError {
